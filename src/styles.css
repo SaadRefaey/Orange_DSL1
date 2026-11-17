@@ -1,0 +1,50 @@
+:root{--bg:#fff;--fg:#111;--mut:#5d5d5d;--card:#f6f6f6;--line:#e2e2e2;--or:#ff6600;--orfg:#fff;--box:#fff}
+@media (prefers-color-scheme:dark){:root{--bg:#0e0e0e;--fg:#f2f2f2;--mut:#a8a8a8;--card:#181818;--line:#2c2c2c;--box:#101010}}
+*{box-sizing:border-box}
+html{scroll-padding-top:70px}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
+.app{min-height:100vh;display:flex;flex-direction:column}
+.top{position:sticky;top:0;z-index:5;display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap;padding:10px 16px;background:#000;color:#fff}
+.brand{display:flex;align-items:center;gap:10px;background:none;border:0;color:#fff;font:inherit;cursor:pointer;padding:0}
+.logo{width:28px;height:28px;background:var(--or);display:inline-block;border-radius:3px}
+nav{display:flex;gap:4px}
+nav button{background:none;border:0;color:#ddd;padding:6px 12px;border-radius:6px;font:inherit;cursor:pointer}
+nav button.on{background:var(--or);color:var(--orfg)}
+main{flex:1;width:100%;max-width:900px;margin:0 auto;padding:18px 16px 40px}
+footer{text-align:center;color:var(--mut);font-size:13px;padding:16px}
+.page-title{font-size:26px;margin:18px 0 12px}
+.search{width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:10px;background:var(--card);color:var(--fg);font:inherit;margin-bottom:10px}
+.search:focus,.btn:focus-visible,.tile:focus-visible,nav button:focus-visible{outline:2px solid var(--or);outline-offset:2px}
+.results{list-style:none;margin:0 0 14px;padding:0;border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.results button{width:100%;display:flex;justify-content:space-between;gap:8px;text-align:left;padding:10px 14px;background:var(--card);color:var(--fg);border:0;border-bottom:1px solid var(--line);font:inherit;cursor:pointer}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px}
+.tile{display:flex;flex-direction:column;gap:6px;text-align:left;padding:16px;background:var(--card);color:var(--fg);border:1px solid var(--line);border-radius:12px;font:inherit;cursor:pointer;transition:transform .15s,border-color .15s}
+.tile:hover{border-color:var(--or);transform:translateY(-2px)}
+.tile.static{cursor:default}.tile.static:hover{transform:none;border-color:var(--line)}
+.tile .ico{font-size:28px}.tile small{color:var(--mut)}.tile .path{font-size:12px;border-top:1px dashed var(--line);padding-top:6px}
+.bar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+.crumbs{display:flex;flex-wrap:wrap;gap:6px;list-style:none;padding:0;margin:0 0 14px;font-size:13px;color:var(--mut)}
+.crumbs li:not(:last-child)::after{content:"›";margin-left:6px}
+.crumbs .now{color:var(--or);font-weight:600}
+.card{background:var(--card);border:1px solid var(--line);border-top:4px solid var(--or);border-radius:12px;padding:20px;animation:in .25s ease}
+@keyframes in{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.card h2{margin:0 0 8px;font-size:23px}
+.text{margin:0 0 14px}
+.box{background:var(--box);border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin:12px 0}
+.box h3{margin:0 0 6px;font-size:13px;text-transform:uppercase;letter-spacing:.05em;color:var(--or)}
+.box p{margin:0 0 8px}
+.script p{font-size:18px;line-height:1.9}
+.code{display:inline-block;background:var(--or);color:var(--orfg);border-radius:6px;padding:0 8px;font-weight:700;font-size:14px}
+dl{margin:0;display:grid;gap:4px}dl div{display:flex;gap:10px}dt{min-width:100px;color:var(--mut)}dd{margin:0}
+.choices{display:grid;gap:10px;margin-top:16px}
+.btn{font:inherit;cursor:pointer;border-radius:10px;border:1px solid var(--line);padding:8px 14px;background:var(--card);color:var(--fg)}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.btn.ghost:hover:not(:disabled){border-color:var(--or)}
+.btn.choice{display:flex;justify-content:space-between;align-items:center;text-align:left;padding:14px 16px;background:var(--or);border-color:var(--or);color:var(--orfg);font-weight:600}
+.btn.choice:hover{filter:brightness(1.08)}
+.scroll{overflow-x:auto;margin:10px 0}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th{background:var(--or);color:var(--orfg);text-align:left}
+th,td{padding:8px 10px;border:1px solid var(--line);vertical-align:top}
+@media (max-width:560px){.page-title{font-size:22px}.card{padding:14px}dl div{flex-direction:column;gap:0}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
